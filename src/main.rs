@@ -36,7 +36,7 @@ fn main(mut req: Request) -> Result<Response, Error> {
 
     // Only permit GET requests.
     if req.get_method() != Method::GET {
-        return Ok(Response::from_body("Access denied").with_status(StatusCode::FORBIDDEN));
+        return Ok(Response::from_body("Method not allowed").with_status(StatusCode::METHOD_NOT_ALLOWED));
     }
 
     // Respond to requests for robots.txt.
